@@ -157,3 +157,20 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const projectWrapper = document.querySelector(".project-item-wrapper");
+  const languageOptions = document.getElementById("language-options");
+  const projectImage = projectWrapper.querySelector(".project-image");
+
+  projectWrapper.addEventListener("mouseover", function() {
+    languageOptions.style.display = "flex"; // Show the flags
+    projectImage.style.opacity = "0.3"; // Dim the image
+  });
+
+  projectWrapper.addEventListener("mouseout", function() {
+    languageOptions.style.display = "none"; // Hide the flags
+    projectImage.style.opacity = "1"; // Restore image opacity
+  });
+});
+
