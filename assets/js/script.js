@@ -159,18 +159,34 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const projectWrapper = document.querySelector(".project-item-wrapper");
-  const languageOptions = document.getElementById("language-options");
-  const projectImage = projectWrapper.querySelector(".project-image");
+  // Select all project item wrappers
+  const projectWrappers = document.querySelectorAll(".project-item-wrapper");
 
-  projectWrapper.addEventListener("mouseover", function() {
-    languageOptions.style.display = "flex"; // Show the flags
-    projectImage.style.opacity = "0.3"; // Dim the image
-  });
+  // Loop through each project wrapper
+  projectWrappers.forEach(function(wrapper) {
+    // Select the corresponding language options and project image within the current wrapper
+    const languageOptions = wrapper.querySelector(".language-options");
+    const projectImage = wrapper.querySelector(".project-image");
 
-  projectWrapper.addEventListener("mouseout", function() {
-    languageOptions.style.display = "none"; // Hide the flags
-    projectImage.style.opacity = "1"; // Restore image opacity
+    // Add event listeners for mouseover and mouseout
+    wrapper.addEventListener("mouseover", function() {
+      if (languageOptions) {
+        languageOptions.style.display = "flex"; // Show the flags
+      }
+      if (projectImage) {
+        projectImage.style.opacity = "0.3"; // Dim the image
+      }
+    });
+
+    wrapper.addEventListener("mouseout", function() {
+      if (languageOptions) {
+        languageOptions.style.display = "none"; // Hide the flags
+      }
+      if (projectImage) {
+        projectImage.style.opacity = "1"; // Restore image opacity
+      }
+    });
   });
 });
+
 
