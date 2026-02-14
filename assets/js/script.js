@@ -147,13 +147,18 @@ for (let i = 0; i < navigationLinks.length; i++) {
     for (let i = 0; i < pages.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
       } else {
         pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
       }
     }
+
+    // Remove active class from all nav links and add to clicked one
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.remove("active");
+    }
+    this.classList.add("active");
+    
+    window.scrollTo(0, 0);
 
   });
 }
